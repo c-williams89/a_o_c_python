@@ -9,24 +9,21 @@ def read_input():
         f = file_in.read().splitlines()
     return f
 
+def calc_most_calories(f):
+    cal_count = 0
+    elves = []
+    for calorie in f:
+        if calorie != '':
+            cal_count += int(calorie)
+        else:
+            elves.append(cal_count)
+            cal_count = 0
+    elves.sort(reverse=True)
+    print(elves[0])
+    total_sum = elves[0] + elves[1] + elves[2]
+    print(total_sum)
 
 
 if __name__ == "__main__":
     f = read_input()
-    elf = 1
-    elves = defaultdict(int)
-    for calorie in f:
-        if calorie != '':
-            elves[elf] += int(calorie)
-        else:
-            elf += 1
-
-    most_calories = 0
-    # print(elves.values())
-    for cal_count in elves.values():
-        print(cal_count)
-        if cal_count > most_calories:
-            most_calories = cal_count
-
-    print(most_calories)
-
+    calc_most_calories(f)
