@@ -12,8 +12,11 @@ def determine_overlap_range(clean_pairs):
     for pair in clean_pairs:
         print(pair)
         elf_pair = pair.split(',')
+        # [23-54, 22-55]
         elf_1 = elf_pair[0].split('-')
+        # [23, 54]
         elf_2 = elf_pair[1].split('-')
+        # [22, 55]
         elf_1_section = []
         elf_2_section = []
         for idx in range(int(elf_1[0]), int(elf_1[1]) + 1):
